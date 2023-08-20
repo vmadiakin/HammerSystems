@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка кода</title>
+</head>
+<body>
+
+{% block content %}
+  <h1>Проверка кода</h1>
+
+
+  <p>Номер телефона: {{ phone_number }}</p>
+  <p>Код авторизации: {{ authorization_code }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <label for="input-code">Введите код авторизации:</label>
+    <input type="text" id="input_code" name="input_code">
+    <button type="submit">Проверить</button>
+  </form>
+      {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+  {% endif %}
+{% endblock %}
+
+</body>
+</html>

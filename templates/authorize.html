@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Авторизация</title>
+</head>
+<body>
+  <h1>Введите номер телефона</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" id="phone_number" name="phone_number">
+        <button type="submit" id="generate_code">Получить код</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h1>Профиль пользователя</h1>
+    <p>Номер телефона: {{ phone_number }}</p>
+    <p>Ваш инвайт код: {{ invitation_code }}</p>
+
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+
+    {% if not invited_by %}
+    <form method="post">
+        <label for="invited_by">Введите инвайт код:</label>
+        <input type="text" id="invited_by" name="invited_by">
+        <button type="submit" id="btn_invited_by">Отправить</button>
+    </form>
+    {% endif %}
+
+    {% if invited_by %}
+    <p>Invitation_by: {{ invited_by.invitation_code }}</p>
+    {% endif %}
+    <h2>Пользователи, которых вы пригласили:</h2>
+    {% if invited_users %}
+    <ul>
+        {% for invited_user in invited_users %}
+            <li>{{ invited_user.phone_number }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    {% if not invited_users %}
+<p>Вы еще никого не пригласили :(</p>
+{% endif %}
+</body>
+</html>
