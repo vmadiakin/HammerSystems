@@ -12,6 +12,7 @@ psycopg2-binary = "^2.9.7"
 djangorestframework = "^3.14.0"
 pycryptodome = "^3.18.0"
 drf-yasg = "^1.21.7"
+django-environ = "^0.10.0"
 
 
 [build-system]
