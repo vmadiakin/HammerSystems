@@ -24,7 +24,7 @@ class InputPhoneView(APIView):
 
         if not phone_number:
             context = {
-                'error_message': 'Please enter a phone number.'
+                'error_message': 'Пожалуйста введите номер телефона'
             }
             return render(request, self.template_name, context)
 
@@ -72,7 +72,7 @@ class VerifyCodeView(APIView):
             user.save()
             return redirect('profile')
         else:
-            error_message = 'Incorrect authorization code.'
+            error_message = 'Неправильной код авторизации'
             context = {
                 'phone_number': phone_number,
                 'authorization_code': authorization_code,
@@ -112,9 +112,9 @@ class ProfileView(APIView):
             invited_user = User.objects.filter(invitation_code=invited_by).first()
 
             if not invited_user:
-                error_message = 'Invitation code does not exist.'
+                error_message = 'Такого инвайт кода не существует'
             elif invited_user.id == user.id:
-                error_message = "This is your own invitation code."
+                error_message = "Это ваш инвайт код"
             else:
                 InvitationCode.objects.create(code=invited_by, user_id=user.id)
                 user.invited_by_id = invited_user.id
