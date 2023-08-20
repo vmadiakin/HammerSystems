@@ -72,7 +72,7 @@ class VerifyCodeView(APIView):
             user.save()
             return redirect('profile')
         else:
-            error_message = 'Неправильной код авторизации'
+            error_message = 'Неправильный код авторизации'
             context = {
                 'phone_number': phone_number,
                 'authorization_code': authorization_code,

@@ -11,5 +11,8 @@
         <input type="text" id="phone_number" name="phone_number">
         <button type="submit" id="generate_code">Получить код</button>
     </form>
+      {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+  {% endif %}
 </body>
 </html>
