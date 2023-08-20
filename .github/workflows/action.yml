@@ -1,10 +1,6 @@
 name: Build and deploy workflow
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  push:
     branches:
       - main
 
